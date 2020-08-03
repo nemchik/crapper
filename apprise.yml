@@ -1,0 +1,5 @@
+# ~/.config/apprise.yml
+
+urls:
+  - pover://user@token:
+    - tag: crop
