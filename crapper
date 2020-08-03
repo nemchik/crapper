@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+CRAPPER_APPRISE_CONF=${CRAPPER_APPRISE_CONF:-}
 CRAPPER_FILTER=${CRAPPER_FILTER:-Finished}
 CRAPPER_SERVICES=${CRAPPER_SERVICES:-}
 CRAPPER_TAG=${CRAPPER_TAG:-crop}
@@ -25,4 +26,4 @@ if [[ -n "${CRAPPER_SERVICES:-}" ]]; then
     fi
 fi
 
-/opt/crop/crop "$@" 3>&1 1>&2 2>&3 | tee >(grep -P "${CRAPPER_FILTER}" | apprise --tag="${CRAPPER_TAG}")
+/opt/crop/crop "$@" 3>&1 1>&2 2>&3 | tee >(grep -P "${CRAPPER_FILTER}" | apprise --tag="${CRAPPER_TAG}" --config="${CRAPPER_APPRISE_CONF}")
