@@ -9,7 +9,7 @@ if [[ -f /opt/crop/crapper.env ]]; then
 fi
 
 if [[ -z "$(command -v apprise)" ]]; then
-    pip install apprise
+    sudo -H pip install apprise
 fi
 
 
